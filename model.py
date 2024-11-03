@@ -58,7 +58,7 @@ model = Sequential([
     layers.Dense(num_of_classes)
 ])
 
-model.compile(optimizer='adam', loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
+model.compile(optimizer='adam', loss = SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
 history = model.fit(trainingDataset, epochs=10, validation_data=val_ds)
 
 #Plotting accuracy
