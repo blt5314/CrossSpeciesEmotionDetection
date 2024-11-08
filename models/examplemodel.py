@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 #Specifying datasets
 imageWidth, imageHeight = 224, 224
 batchSize = 32
-dataDirectory = './data/dog'
+dataDirectory = '../data/dog'
 
 trainingDataset = image_dataset_from_directory(
     dataDirectory,
