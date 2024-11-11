@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Updated directory">
-      <change afterPath="$PROJECT_DIR$/models/vggmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plotting/plotmodelhistory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processing/dataprocessing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processing/getdata.py" afterDir="false" />
+    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Reorganized structure. Addded scripts for processing and getting dataset. Started work on effecientbnet model.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/effecientbnetmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/effecientbnetmodel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processing/dataaugmentation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processing/dataprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/processing/dataprocessing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,7 @@
       <workItem from="1730587295174" duration="17255000" />
       <workItem from="1730738169121" duration="1339000" />
       <workItem from="1730929350231" duration="10584000" />
-      <workItem from="1731362119645" duration="1992000" />
+      <workItem from="1731362119645" duration="2750000" />
     </task>
     <task id="LOCAL-00001" summary="Initial dog dataset and model">
       <option name="closed" value="true" />
@@ -125,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731100690927</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Reorganized structure. Addded scripts for processing and getting dataset. Started work on effecientbnet model.">
+      <option name="closed" value="true" />
+      <created>1731364467043</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731364467043</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +140,8 @@
     <MESSAGE value="Created script for cleaning corrupted jpg files and used it." />
     <MESSAGE value="Changed file structure" />
     <MESSAGE value="Updated directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated directory" />
+    <MESSAGE value="Reorganized structure. Addded scripts for processing and getting dataset. Started work on effecientbnet model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized structure. Addded scripts for processing and getting dataset. Started work on effecientbnet model." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$checkimages.coverage" NAME="checkimages Coverage Results" MODIFIED="1730607930213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />

@@ -1,18 +1,18 @@
 from keras import Sequential
 from keras.src import layers
 import tensorflow as tf
-from getdata import getTrainingData
-from getdata import getValidationData
-from getdata import batchSize
-from getdata import numberOfClasses
+from processing.getdata import getTrainingData
+from processing.getdata import getValidationData
+from processing.getdata import batchSize
+from processing.getdata import numberOfClasses
 
 #Specifying augmentation layers
-augmentationLayers = Sequential([
+augmentationLayers = [
     layers.RandomRotation(factor=0.15),
     layers.RandomTranslation(height_factor=0.1, width_factor=0.1),
     layers.RandomFlip(),
     layers.RandomContrast(factor=0.1),
-])
+]
 
 #Augmentating image with augmentation layers
 def imageAugmentation(images):

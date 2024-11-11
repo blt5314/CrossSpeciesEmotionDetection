@@ -2,13 +2,13 @@
 from keras.src.applications.efficientnet import EfficientNetB0
 from processing.getdata import imageWidth
 from processing.getdata import imageHeight
-from processing.getdata import getTrainingData
-from processing.getdata import getValidationData
+from processing.dataprocessing import getProcessedTrainingData
+from processing.dataprocessing import getProcessedValidationData
 from plotting.plotmodelhistory import plotHistory
 
 #Retrieving data
-trainingDataset = getTrainingData()
-validationDataset = getValidationData()
+trainingDataset = getProcessedTrainingData()
+validationDataset = getProcessedValidationData()
 
 #Specifying model
 model = EfficientNetB0(
