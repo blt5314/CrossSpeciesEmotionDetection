@@ -1,14 +1,27 @@
 #Importing
-import numpy as np
-import tensorflow as tf
-from keras.src.utils.image_dataset_utils import image_dataset_from_directory
-from keras.src.applications.efficientnet_v2 import EfficientNetV2
-from keras.src.models import Model
-from keras.src.models import Sequential
-from keras.src.layers import GlobalAveragePooling2D, Dense, Dropout
-from keras.src.optimizers import Adam
-from keras.src.callbacks import EarlyStopping, LearningRateScheduler
-from keras.src import layers
-from keras.src.losses.losses import SparseCategoricalCrossentropy
-from sklearn.utils.class_weight import compute_class_weight
-import matplotlib.pyplot as plt
+from keras.src.applications.efficientnet import EfficientNetB0
+from processing.getdata import imageWidth
+from processing.getdata import imageHeight
+from processing.getdata import getTrainingData
+from processing.getdata import getValidationData
+from plotting.plotmodelhistory import plotHistory
+
+#Retrieving data
+trainingDataset = getTrainingData()
+validationDataset = getValidationData()
+
+#Specifying model
+model = EfficientNetB0(
+    include_top=False,
+    weights='imagenet',   #Try with None
+    classes=4,
+    input_shape=(imageHeight, imageWidth, 3),
+)
+
+#Creating model
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+model.summary()
+hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset)
+
+#Show results
+plotHistory(hist)
