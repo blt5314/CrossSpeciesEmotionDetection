@@ -82,7 +82,7 @@ model.summary()
 early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
 # Train the model
-epochs = 15  # Reduce epochs for faster training
+epochs = 20  # Reduce epochs for faster training
 history = model.fit(
     trainingDataset,
     validation_data=valDataset,
