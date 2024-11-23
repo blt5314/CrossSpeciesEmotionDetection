@@ -24,7 +24,7 @@ def is_image(filename, verbose=False):
 
     return False
 
-dir = ('./data/dog/angry')
+dir = ('../data/angry')
 
 # go through all files in desired folder
 for filename in os.listdir(dir):

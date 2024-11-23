@@ -2,9 +2,9 @@
 from keras.src.utils.image_dataset_utils import image_dataset_from_directory
 
 #Specifying datasets
-imageWidth, imageHeight = 224, 224
-numberOfClasses = 4
-dataDirectory = '../data/dog'
+imageWidth, imageHeight = 456, 456
+numberOfClasses = 5
+dataDirectory = '../data'
 batchSize = 32
 
 trainingDataset = image_dataset_from_directory(

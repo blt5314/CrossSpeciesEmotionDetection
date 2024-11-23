@@ -1,5 +1,5 @@
 #Importing
-from keras.src.applications.efficientnet import EfficientNetB0, EfficientNetB7
+from keras.src.applications.efficientnet import EfficientNetB0, EfficientNetB5
 from processing.getdata import imageWidth
 from processing.getdata import imageHeight
 from processing.dataprocessing import getProcessedTrainingData
@@ -19,7 +19,7 @@ validationDataset = getProcessedValidationData()
 inputs = layers.Input(shape=(imageHeight, imageWidth, 3))
 
 #Specifying model
-model = EfficientNetB7(
+model = EfficientNetB5(
     include_top = False,
     weights = 'imagenet',
     input_tensor = inputs,
@@ -40,7 +40,7 @@ model = Model(inputs, outputs, name="EfficientNet")
 optimizer = Adam(learning_rate=1e-2)
 model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
 model.summary()
-hist = model.fit(trainingDataset, epochs=12, validation_data=validationDataset)
+hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset)
 
 #Show results
 plotHistory(hist)
