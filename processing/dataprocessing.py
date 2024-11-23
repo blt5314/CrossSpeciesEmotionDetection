@@ -1,9 +1,7 @@
-from keras import Sequential
 from keras.src import layers
 import tensorflow as tf
 from processing.getdata import getTrainingData
 from processing.getdata import getValidationData
-from processing.getdata import batchSize
 from processing.getdata import numberOfClasses
 
 #Specifying augmentation layers
@@ -15,10 +13,10 @@ augmentationLayers = [
 ]
 
 #Augmentating image with augmentation layers
-def imageAugmentation(images):
+def imageAugmentation(image):
     for layer in augmentationLayers:
-        images = layer(images)
-    return images
+        image = layer(image)
+    return image
 
 #Preprocessing for training data
 def trainInputPreProcessing(image, label):
@@ -35,11 +33,9 @@ trainingDataset = getTrainingData()
 validationDataset = getValidationData()
 
 trainingDataset = trainingDataset.map(trainInputPreProcessing, num_parallel_calls=tf.data.AUTOTUNE)
-trainingDataset = trainingDataset.batch(batch_size=batchSize, drop_remainder=True)
 trainingDataset = trainingDataset.prefetch(tf.data.AUTOTUNE)
 
 validationDataset = validationDataset.map(testInputPreProcessing, num_parallel_calls=tf.data.AUTOTUNE)
-validationDataset = validationDataset.batch(batch_size=batchSize, drop_remainder=True)
 
 def getProcessedTrainingData():
     return trainingDataset
