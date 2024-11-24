@@ -1,30 +1,29 @@
 #Importing
-from keras.src.utils.image_dataset_utils import image_dataset_from_directory
+from processing.dataaugmentation import trainDataGenerator
+from processing.dataaugmentation import validDataGenerator
 
 #Specifying datasets
-imageWidth, imageHeight = 456, 456
+imageWidth, imageHeight = 224, 224
 numberOfClasses = 5
-dataDirectory = '../data'
+dataDirectory = '../data/dog'
 batchSize = 32
 
-trainingDataset = image_dataset_from_directory(
+trainingDataset = trainDataGenerator.flow_from_directory(
     dataDirectory,
-    validation_split=0.2,
     subset = 'training',
-    seed = 747,
-    image_size = (imageHeight, imageWidth),
-    batch_size = batchSize
+    class_mode = 'categorical',
+    target_size=(imageWidth, imageHeight),
+    batch_size = batchSize,
+    shuffle = True,
 )
 
-validationDataset = image_dataset_from_directory(
+validationDataset = validDataGenerator.flow_from_directory(
     dataDirectory,
-    labels = 'inferred',
-    validation_split=0.2,
     subset = 'validation',
+    class_mode = 'categorical',
+    target_size=(imageWidth, imageHeight),
+    batch_size = batchSize,
     shuffle = True,
-    seed = 747,
-    image_size = (imageHeight, imageWidth),
-    batch_size = batchSize
 )
 
 def getTrainingData():
