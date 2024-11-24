@@ -15,6 +15,7 @@ trainingDataset = trainDataGenerator.flow_from_directory(
     target_size=(imageWidth, imageHeight),
     batch_size = batchSize,
     shuffle = True,
+    seed = 747,
 )
 
 validationDataset = validDataGenerator.flow_from_directory(
@@ -24,6 +25,7 @@ validationDataset = validDataGenerator.flow_from_directory(
     target_size=(imageWidth, imageHeight),
     batch_size = batchSize,
     shuffle = True,
+    seed = 747,
 )
 
 def getTrainingData():

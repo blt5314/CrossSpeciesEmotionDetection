@@ -35,20 +35,21 @@ topDropout = 0.5
 model = Sequential()
 model.add(baseModel)
 
-"""
+#Try with 32
 model.add(Dropout(topDropout))
 model.add(Flatten())
 model.add(BatchNormalization())
-model.add(Dense(512,kernel_initializer='he_uniform'))
+model.add(Dense(32,kernel_initializer='he_uniform'))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 model.add(Dense(numberOfClasses,activation='softmax'))
-"""
 
+"""
 model.add(GlobalAveragePooling2D(name="avg_pool"))
 model.add(BatchNormalization())
 model.add(Dropout(topDropout, name="top_dropout"))
 model.add(Dense(numberOfClasses, activation="softmax", name="pred"))
+"""
 
 #Creating callbacks
 lrd = ReduceLROnPlateau(monitor = 'val_loss',patience = 20,verbose = 1,factor = 0.50, min_lr = 1e-10)
@@ -60,7 +61,7 @@ model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["ac
 model.summary()
 
 #Train model
-hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, callbacks=[lrd,es])
+hist = model.fit(trainingDataset, epochs=5, validation_data=validationDataset, callbacks=[lrd,es])
 
 #Show results
 plotHistory(hist)

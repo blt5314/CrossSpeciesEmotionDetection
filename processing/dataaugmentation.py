@@ -2,6 +2,7 @@ from keras.src.legacy.preprocessing.image import ImageDataGenerator
 
 #Try higher rotation range
 #Specifying image data processing
+"""
 trainDataGenerator = ImageDataGenerator(
     rescale=1./255,
     rotation_range = 15,
@@ -12,7 +13,8 @@ trainDataGenerator = ImageDataGenerator(
     validation_split=0.2,
 )
 
-"""trainDataGenerator = ImageDataGenerator(
+"""
+trainDataGenerator = ImageDataGenerator(
     rescale=1./255,
     shear_range=0.2,
     rotation_range=5,
@@ -23,7 +25,8 @@ trainDataGenerator = ImageDataGenerator(
     horizontal_flip=True,
     fill_mode='nearest',
     validation_split=0.2,
-)"""
+)
+
 
 #Specifying image data processing
 validDataGenerator = ImageDataGenerator(
