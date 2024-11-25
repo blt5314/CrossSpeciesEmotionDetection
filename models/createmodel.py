@@ -10,7 +10,7 @@ from plotting.plotmodelhistory import plotHistory
 from processing.getdata import numberOfClasses
 from keras.src import layers
 from keras.src.optimizers import Adam
-from keras.src.applications.vgg19 import VGG19
+from keras.src.applications.vgg16 import VGG16
 
 #Name of file to save the model to
 modelSaveName = "dog_vgg16_multiclass_model.keras"
@@ -20,7 +20,7 @@ trainingDataset = getTrainingData()
 validationDataset = getValidationData()
 
 #Specifying model
-baseModel = VGG19(include_top = False, weights = 'imagenet', input_shape = (imageHeight, imageWidth, 3), classes=numberOfClasses)
+baseModel = VGG16(include_top = False, weights = 'imagenet', input_shape = (imageHeight, imageWidth, 3), classes=numberOfClasses)
 
 # Freeze the pretrained weights
 baseModel.trainable = False
@@ -32,7 +32,7 @@ model.add(baseModel)
 model.add(Dropout(topDropout))
 model.add(Flatten())
 model.add(BatchNormalization())
-model.add(Dense(64,kernel_initializer='he_uniform')) #Try with smaller and bigger
+model.add(Dense(32,kernel_initializer='he_uniform')) #Try with smaller and bigger
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 model.add(Dense(numberOfClasses,activation='softmax'))
