@@ -12,6 +12,9 @@ from keras.src import layers
 from keras.src.optimizers import Adam
 from keras.src.applications.vgg19 import VGG19
 
+#Name of file to save the model to
+modelSaveName = "dog_vgg16_multiclass_model.keras"
+
 #Retrieving data
 trainingDataset = getTrainingData()
 validationDataset = getValidationData()
@@ -65,4 +68,4 @@ hist = model.fit(trainingDataset, epochs=5, validation_data=validationDataset, c
 plotHistory(hist)
 
 #Save model
-model.save('./savedmodels/dog_efficientbnet0_multiclass_model.keras')
+model.save('./savedmodels/' + modelSaveName)
