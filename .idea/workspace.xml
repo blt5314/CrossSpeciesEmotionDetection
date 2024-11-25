@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Refactored image location and updated b net model.">
+    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Readded images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/efficientbnetmodelfinetuned.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/efficientbnetmodelfinetuned.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processing/dataaugmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/processing/dataaugmentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processing/getdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/processing/getdata.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732483899917</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Readded images">
+      <option name="closed" value="true" />
+      <created>1732488814963</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732488814963</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,13 +184,14 @@
     <MESSAGE value="Functioning efficient b net script with and without pre-finetuned weights." />
     <MESSAGE value="Updated with better data." />
     <MESSAGE value="Refactored image location and updated b net model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored image location and updated b net model." />
+    <MESSAGE value="Readded images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readded images" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel.coverage" NAME="examplemodel Coverage Results" MODIFIED="1731953357175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$checkimages.coverage" NAME="checkimages Coverage Results" MODIFIED="1732384748597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$getdata.coverage" NAME="getdata Coverage Results" MODIFIED="1732466089723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />
-    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$efficientbnetmodelfinetuned.coverage" NAME="efficientbnetmodelfinetuned Coverage Results" MODIFIED="1732486536299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$efficientbnetmodelfinetuned.coverage" NAME="efficientbnetmodelfinetuned Coverage Results" MODIFIED="1732489673036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel2.coverage" NAME="examplemodel2 Coverage Results" MODIFIED="1731956336313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$effecientbnetmodel.coverage" NAME="effecientbnetmodel Coverage Results" MODIFIED="1732335638557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$model.coverage" NAME="model Coverage Results" MODIFIED="1730608364846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

@@ -25,7 +25,7 @@ validationDataset = getValidationData()
 baseModel = EfficientNetV2B0(include_top = False,
                        weights = 'imagenet',
                        input_shape = (imageHeight, imageWidth, 3),
-                       classes=numberOfClasses)#Try with pooling and no classes
+                       classes=numberOfClasses)
 
 # Freeze the pretrained weights
 baseModel.trainable = False
@@ -72,8 +72,9 @@ for layer in model.layers[-20:]:
         layer.trainable = True
 
 #Start training again
-optimizer = Adam(learning_rate=1e-3)
+optimizer = Adam(learning_rate=1e-4)
 model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
+model.summary()
 hist = model.fit(trainingDataset, epochs=5, validation_data=validationDataset, callbacks=[lrd,es])
 
 #Show results
