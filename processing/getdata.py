@@ -4,7 +4,7 @@ from processing.dataaugmentation import validDataGenerator
 
 #Specifying datasets
 imageWidth, imageHeight = 224, 224
-numberOfClasses = 5
+numberOfClasses = 4
 dataDirectory = '../data/dog'
 batchSize = 32
 
