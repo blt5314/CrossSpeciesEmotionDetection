@@ -10,30 +10,26 @@ from plotting.plotmodelhistory import plotHistory
 from processing.getdata import numberOfClasses
 from keras.src import layers
 from keras.src.optimizers import Adam
-
-#Try
-from keras.src.applications.mobilenet_v2 import MobileNetV2
-from keras.src.applications.resnet_v2 import ResNet50V2
-from keras.src.applications.vgg16 import VGG16
+from keras.src.applications.vgg19 import VGG19
 
 #Retrieving data
 trainingDataset = getTrainingData()
 validationDataset = getValidationData()
 
 #Specifying model
-baseModel = VGG16(include_top = False, weights = 'imagenet', input_shape = (imageHeight, imageWidth, 3), classes=numberOfClasses)
+baseModel = VGG19(include_top = False, weights = 'imagenet', input_shape = (imageHeight, imageWidth, 3), classes=numberOfClasses)
 
 # Freeze the pretrained weights
 baseModel.trainable = False
 
 #Build top of model
-topDropout = 0.5
+topDropout = 0.6
 model = Sequential()
 model.add(baseModel)
 model.add(Dropout(topDropout))
 model.add(Flatten())
 model.add(BatchNormalization())
-model.add(Dense(128,kernel_initializer='he_uniform')) #Try with smaller and bigger
+model.add(Dense(64,kernel_initializer='he_uniform')) #Try with smaller and bigger
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 model.add(Dense(numberOfClasses,activation='softmax'))

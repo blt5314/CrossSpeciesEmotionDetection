@@ -12,14 +12,14 @@ trainDataGenerator = ImageDataGenerator(
     height_shift_range=0.05,
     horizontal_flip=True,
     fill_mode='nearest',
-    validation_split=0.2,
+    validation_split=0.15,
 )
 
 
 #Specifying image data processing
 validDataGenerator = ImageDataGenerator(
     rescale=1./255,
-    validation_split=0.2,
+    validation_split=0.15,
 )
 
 #Get train image data generation
