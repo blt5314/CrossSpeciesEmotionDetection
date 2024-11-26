@@ -9,6 +9,10 @@ from keras.src.utils.image_utils import load_img, img_to_array
 from config import imageWidth
 from config import imageHeight
 from config import classDirectory
+from config import loadModelDirectory
+
+#Model file name
+modelFileName = "dog_vgg16_multiclass_model.keras"
 
 #Get labels from directory
 classGenerator = ImageDataGenerator().flow_from_directory(
@@ -18,9 +22,9 @@ classGenerator = ImageDataGenerator().flow_from_directory(
 labels = classGenerator.class_indices
 labels = {v: k for k, v in labels.items()}
 
-#Load model from foldere
-modelFileName = "./models/savedmodels/dog_vgg16_multiclass_model.keras"
-loadedModel = keras.saving.load_model(modelFileName)
+#Load model from folder
+modelPath =  loadModelDirectory + modelFileName
+loadedModel = keras.saving.load_model(modelPath)
 
 #Function to load selected image as an array
 def load(path):
