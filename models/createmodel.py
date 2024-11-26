@@ -48,7 +48,7 @@ model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["ac
 model.summary()
 
 #Train model
-hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, callbacks=[lrd,es])
+hist = model.fit(trainingDataset, epochs=20, validation_data=validationDataset, callbacks=[lrd,es])
 
 #Show results
 plotHistory(hist)
@@ -62,7 +62,7 @@ for layer in model.layers[-20:]:
 optimizer = Adam(learning_rate=1e-5)
 model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
 model.summary()
-hist = model.fit(trainingDataset, epochs=5, validation_data=validationDataset, callbacks=[lrd,es])
+hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, callbacks=[lrd,es])
 
 #Show results
 plotHistory(hist)
