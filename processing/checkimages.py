@@ -1,16 +1,17 @@
 import os
 
+#StackOverflow code
 def is_image(filename, verbose=False):
 
     data = open(filename,'rb').read(10)
 
-    # check if file is JPG or JPEG
+    #Check if file is JPG or JPEG
     if data[:3] == b'\xff\xd8\xff':
         if verbose == True:
              print(filename+" is: JPG/JPEG.")
         return True
 
-    # check if file is PNG
+    #Check if file is PNG
     if data[:8] == b'\x89\x50\x4e\x47\x0d\x0a\x1a\x0a':
         if verbose == True:
              print(filename+" is: PNG.")
@@ -26,9 +27,9 @@ def is_image(filename, verbose=False):
 
 dir = ('../data/angry')
 
-# go through all files in desired folder
+#Go through all files in desired folder
 for filename in os.listdir(dir):
-     # check if file is actually an image file
+     #Check if file is actually an image file
      if is_image(os.path.join(dir, filename), verbose=False) == False:
-          # if the file is not valid, print it
+          #If the file is not valid, print it
           print(filename)
