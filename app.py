@@ -6,8 +6,8 @@ from PIL.Image import Image
 from skimage import transform
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog
-from processing.getdata import imageWidth
-from processing.getdata import imageHeight
+from config import imageWidth
+from config import imageHeight
 
 modelFileName = "./models/savedmodels/dog_vgg16_multiclass_model.keras"
 
@@ -31,8 +31,8 @@ class MainWindow(QWidget):
         fileBrowse.clicked.connect(self.openFileDialog)
 
         self.imageLabel = QLabel()
-        self.imageNameLabel = QLabel()
-        self.imageClassLabel = QLabel()
+        self.imageNameLabel = QLabel("test")
+        self.imageClassLabel = QLabel("test2")
 
         layout = QVBoxLayout()
         layout.addWidget(fileBrowse)
@@ -47,16 +47,17 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Select a File",
-            "C:\\",
+            "",
             "Images (*.png *.jpg *.jpeg)"
         )
 
         if filename:
             path = Path(filename)
+            print(path)
             self.imageNameLabel.setText(filename)
             self.imageLabel.setPixmap(QPixmap(path))
-            image = load(path)
-            self.imageClassLabel.setText(loadedModel.predict(image))
+            #image = load(path)
+            #self.imageClassLabel.setText(loadedModel.predict(image))
 
 #Start application
 if __name__ == '__main__':

@@ -1,12 +1,10 @@
 #Importing
 from processing.dataaugmentation import trainDataGenerator
 from processing.dataaugmentation import validDataGenerator
-
-#Specifying datasets
-imageWidth, imageHeight = 224, 224
-numberOfClasses = 4
-dataDirectory = '../data/dog'
-batchSize = 32
+from config import imageWidth
+from config import imageHeight
+from config import dataDirectory
+from config import batchSize
 
 trainingDataset = trainDataGenerator.flow_from_directory(
     dataDirectory,

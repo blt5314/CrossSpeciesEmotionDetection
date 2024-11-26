@@ -2,12 +2,12 @@
 from keras import Sequential
 from keras.src.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.src.layers import Dropout, Flatten, BatchNormalization, Dense, Activation
-from processing.getdata import imageWidth
-from processing.getdata import imageHeight
 from processing.getdata import getTrainingData
 from processing.getdata import getValidationData
 from plotting.plotmodelhistory import plotHistory
-from processing.getdata import numberOfClasses
+from config import imageWidth
+from config import imageHeight
+from config import numberOfClasses
 from keras.src import layers
 from keras.src.optimizers import Adam
 from keras.src.applications.vgg16 import VGG16
