@@ -2,6 +2,8 @@ import keras
 import numpy as np
 import sys
 from pathlib import Path
+
+from PyQt6 import QtGui
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog
 from keras.src.legacy.preprocessing.image import ImageDataGenerator
@@ -49,6 +51,10 @@ class MainWindow(QWidget):
         self.imageLabel = QLabel()
         self.imageNameLabel = QLabel()
         self.imageClassLabel = QLabel()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setPixelSize(25)
+        self.imageClassLabel.setFont(font)
 
         layout = QVBoxLayout()
         layout.addWidget(fileBrowse)
