@@ -57,16 +57,6 @@ hist = model.fit(trainingDataset, epochs=20, validation_data=validationDataset, 
 # Show results
 plotHistory(hist)
 
-# Plotting the training and validation loss
-plt.figure(figsize=(10, 6))
-plt.plot(hist.history['loss'], label='Training Loss')
-plt.plot(hist.history['val_loss'], label='Validation Loss')
-plt.title('Training and Validation Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
-
 # Unfreeze base model
 for layer in model.layers[-20:]:
     if not isinstance(layer, layers.BatchNormalization):
@@ -81,15 +71,7 @@ hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, 
 # Show results
 plotHistory(hist)
 
-# Plotting the training and validation loss again
-plt.figure(figsize=(10, 6))
-plt.plot(hist.history['loss'], label='Training Loss')
-plt.plot(hist.history['val_loss'], label='Validation Loss')
-plt.title('Training and Validation Loss (Fine-tuning)')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
+
 
 # Save model
 model.save('./savedmodels/' + modelSaveName)
