@@ -76,8 +76,6 @@ plotHistory(hist)
 # Save model
 model.save('./savedmodels/' + modelSaveName)
 
-# ---- New code to generate confusion matrix ----
-
 # Step 1: Make predictions
 # Get the true labels from the validation dataset
 y_true = validationDataset.classes
