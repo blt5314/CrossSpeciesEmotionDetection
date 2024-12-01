@@ -16,22 +16,26 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
+# Custom precision metric
+def precision(y_true, y_pred):
+    tp = K.sum(K.cast(y_true, 'float32') * K.round(y_pred), axis=0)
+    fp = K.sum((1 - K.cast(y_true, 'float32')) * K.round(y_pred), axis=0)
+    precision = tp / (tp + fp + K.epsilon())
+    return K.mean(precision)
+
+# Custom recall metric
+def recall(y_true, y_pred):
+    tp = K.sum(K.cast(y_true, 'float32') * K.round(y_pred), axis=0)
+    fn = K.sum(K.cast(y_true, 'float32') * (1 - K.round(y_pred)), axis=0)
+    recall = tp / (tp + fn + K.epsilon())
+    return K.mean(recall)
+
 # Custom F1-score metric
 def f1_score(y_true, y_pred):
-    # Convert y_true and y_pred to one-hot encoded values
-    y_true = K.cast(y_true, 'float32')
-    y_pred = K.round(y_pred)  # Rounds probabilities to binary values for each class
-
-    # Calculate true positives, false positives, and false negatives
-    tp = K.sum(y_true * y_pred, axis=0)  # Element-wise multiplication
-    fp = K.sum((1 - y_true) * y_pred, axis=0)
-    fn = K.sum(y_true * (1 - y_pred), axis=0)
-
-    # Compute precision, recall, and F1-score
-    precision = tp / (tp + fp + K.epsilon())
-    recall = tp / (tp + fn + K.epsilon())
-    f1 = 2 * precision * recall / (precision + recall + K.epsilon())
-    return K.mean(f1)  # Return the mean F1-score across all classes
+    p = precision(y_true, y_pred)
+    r = recall(y_true, y_pred)
+    f1 = 2 * p * r / (p + r + K.epsilon())
+    return f1
 
 # Name of file to save the model to
 modelSaveName = "dog_vgg16_multiclass_model.keras"
@@ -64,7 +68,7 @@ es = EarlyStopping(verbose=1, patience=20)
 
 # Creating model
 optimizer = Adam(learning_rate=1e-3)
-model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score])
+model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score, precision, recall])
 model.summary()
 
 # Train model
@@ -80,7 +84,7 @@ for layer in model.layers[-20:]:
 
 # Start training again
 optimizer = Adam(learning_rate=1e-5)
-model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score])
+model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score, precision, recall])
 model.summary()
 hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, callbacks=[lrd, es])
 
