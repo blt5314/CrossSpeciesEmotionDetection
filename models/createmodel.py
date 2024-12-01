@@ -1,13 +1,12 @@
-# Importing necessary libraries
+# Import necessary libraries
+from keras import backend as K
 from keras import Sequential
 from keras.src.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.src.layers import Dropout, Flatten, BatchNormalization, Dense, Activation
 from processing.getdata import getTrainingData
 from processing.getdata import getValidationData
 from plotting.plotmodelhistory import plotHistory
-from config import imageWidth
-from config import imageHeight
-from config import numberOfClasses
+from config import imageWidth, imageHeight, numberOfClasses
 from keras.src import layers
 from keras.src.optimizers import Adam
 from keras.src.applications.vgg16 import VGG16
@@ -16,6 +15,18 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
+# Custom F1-score metric
+def f1_score(y_true, y_pred):
+    y_pred_classes = K.argmax(y_pred, axis=-1)
+    y_true_classes = K.argmax(y_true, axis=-1)
+    tp = K.sum(K.cast(y_true_classes * y_pred_classes, 'float'), axis=0)
+    fp = K.sum(K.cast((1 - y_true_classes) * y_pred_classes, 'float'), axis=0)
+    fn = K.sum(K.cast(y_true_classes * (1 - y_pred_classes), 'float'), axis=0)
+    precision = tp / (tp + fp + K.epsilon())
+    recall = tp / (tp + fn + K.epsilon())
+    f1 = 2 * precision * recall / (precision + recall + K.epsilon())
+    return K.mean(f1)
 
 # Name of file to save the model to
 modelSaveName = "dog_vgg16_multiclass_model.keras"
@@ -37,7 +48,7 @@ model.add(baseModel)
 model.add(Dropout(topDropout))
 model.add(Flatten())
 model.add(BatchNormalization())
-model.add(Dense(40, kernel_initializer='he_uniform'))  # Try with smaller and bigger
+model.add(Dense(40, kernel_initializer='he_uniform'))
 model.add(BatchNormalization())
 model.add(Activation('relu'))
 model.add(Dense(numberOfClasses, activation='softmax'))
@@ -47,8 +58,8 @@ lrd = ReduceLROnPlateau(monitor='val_loss', patience=20, verbose=1, factor=0.50,
 es = EarlyStopping(verbose=1, patience=20)
 
 # Creating model
-optimizer = Adam(learning_rate=1e-3)  # Try with -3
-model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
+optimizer = Adam(learning_rate=1e-3)
+model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score])
 model.summary()
 
 # Train model
@@ -64,25 +75,20 @@ for layer in model.layers[-20:]:
 
 # Start training again
 optimizer = Adam(learning_rate=1e-5)
-model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
+model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy", f1_score])
 model.summary()
 hist = model.fit(trainingDataset, epochs=10, validation_data=validationDataset, callbacks=[lrd, es])
 
 # Show results
 plotHistory(hist)
 
-
-
 # Save model
 model.save('./savedmodels/' + modelSaveName)
 
 # Step 1: Make predictions
-# Get the true labels from the validation dataset
 y_true = validationDataset.classes
-
-# Predict on the validation dataset
 y_pred_prob = model.predict(validationDataset)
-y_pred = np.argmax(y_pred_prob, axis=1)  # Get the class with the highest probability
+y_pred = np.argmax(y_pred_prob, axis=1)
 
 # Step 2: Generate confusion matrix
 cm = confusion_matrix(y_true, y_pred)
