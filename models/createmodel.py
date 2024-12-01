@@ -1,5 +1,5 @@
 # Import necessary libraries
-from keras import backend as K
+import tensorflow.keras.backend as K
 from keras import Sequential
 from keras.src.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.src.layers import Dropout, Flatten, BatchNormalization, Dense, Activation
@@ -18,15 +18,20 @@ import matplotlib.pyplot as plt
 
 # Custom F1-score metric
 def f1_score(y_true, y_pred):
-    y_pred_classes = K.argmax(y_pred, axis=-1)
-    y_true_classes = K.argmax(y_true, axis=-1)
-    tp = K.sum(K.cast(y_true_classes * y_pred_classes, 'float'), axis=0)
-    fp = K.sum(K.cast((1 - y_true_classes) * y_pred_classes, 'float'), axis=0)
-    fn = K.sum(K.cast(y_true_classes * (1 - y_pred_classes), 'float'), axis=0)
+    # Convert y_true and y_pred to one-hot encoded values
+    y_true = K.cast(y_true, 'float32')
+    y_pred = K.round(y_pred)  # Rounds probabilities to binary values for each class
+
+    # Calculate true positives, false positives, and false negatives
+    tp = K.sum(y_true * y_pred, axis=0)  # Element-wise multiplication
+    fp = K.sum((1 - y_true) * y_pred, axis=0)
+    fn = K.sum(y_true * (1 - y_pred), axis=0)
+
+    # Compute precision, recall, and F1-score
     precision = tp / (tp + fp + K.epsilon())
     recall = tp / (tp + fn + K.epsilon())
     f1 = 2 * precision * recall / (precision + recall + K.epsilon())
-    return K.mean(f1)
+    return K.mean(f1)  # Return the mean F1-score across all classes
 
 # Name of file to save the model to
 modelSaveName = "dog_vgg16_multiclass_model.keras"
