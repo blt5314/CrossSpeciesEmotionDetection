@@ -25,6 +25,11 @@ Add the version 0.13.2 of seaborn
 Add the version 1.5.2 of scikit-learn
 
 -----------------------------------------------------------------
+*IMPORTANT*
+If you have already created the models, you are not required to do this part
+                |
+                |
+                V
 
 First you must create the models to use /processing/100test.py and /app.py
 
