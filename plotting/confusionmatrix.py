@@ -26,7 +26,7 @@ def getConfusionMatrix(modelFileName):
     #Create and plot confusion matrix
     cm = confusion_matrix(targets, predictions)
     plt.figure(figsize=(10, 8))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=validationDataset.class_indices,yticklabels=np.arange(numberOfClasses))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=validationDataset.class_indices,yticklabels=validationDataset.class_indices)
     plt.xlabel('Predicted Labels')
     plt.ylabel('True Labels')
     plt.title('Confusion Matrix')
