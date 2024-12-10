@@ -93,19 +93,3 @@ plotHistory(hist)
 
 # Save model
 model.save('./savedmodels/' + modelSaveName)
-
-# Step 1: Make predictions
-y_true = validationDataset.classes
-y_pred_prob = model.predict(validationDataset)
-y_pred = np.argmax(y_pred_prob, axis=1)
-
-# Step 2: Generate confusion matrix
-cm = confusion_matrix(y_true, y_pred)
-
-# Step 3: Plot confusion matrix using seaborn heatmap
-plt.figure(figsize=(10, 8))
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=np.arange(numberOfClasses), yticklabels=np.arange(numberOfClasses))
-plt.xlabel('Predicted Labels')
-plt.ylabel('True Labels')
-plt.title('Confusion Matrix')
-plt.show()

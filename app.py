@@ -8,7 +8,7 @@ from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog
 from keras.src.legacy.preprocessing.image import ImageDataGenerator
 from keras.src.utils.image_utils import load_img, img_to_array
-from config import imageWidth, imageHeight, classDirectory, loadModelDirectory
+from config import imageWidth, imageHeight, classDirectory, loadModelDirectory, loadedModelName
 
 # Custom metric functions for f1, precision, and recall
 def f1_metric(y_true, y_pred):
@@ -21,7 +21,7 @@ def recall_metric(y_true, y_pred):
     return recall_score(y_true, y_pred, average='weighted')
 
 # Model file name
-modelFileName = "combined_vgg16_multiclass_model.keras"
+modelFileName = loadedModelName
 
 # Get labels from directory
 classGenerator = ImageDataGenerator().flow_from_directory(
