@@ -32,13 +32,13 @@ First you must create the models to use /processing/100test.py and /app.py
 1. The initial dataset by default will be the dog dataset, simply run the /models/createmodel.py script to create
 the first dog model
 
-2. To create the human model, you must change the word dog on line 41 in createmodel.py to human
+2. To create the human model, you must change the word dog on line 41 (modelSaveName) in createmodel.py to human
 
 3. you must also change line 2 in config.py to human
 
 4. run createmodel.py again to create the human model
 
-5. To create the combined model, you must change the word dog on line 41 in createmodel.py to combined
+5. To create the combined model, you must change the word dog on line 41 (modelSaveName) in createmodel.py to combined
 
 6. you must also change line 2 in config.py to combined
 
