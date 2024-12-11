@@ -1,5 +1,5 @@
 import keras
-from config import loadModelDirectory, numberOfClasses, loadedModelName
+from config import loadModelDirectory, loadedModelName
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
