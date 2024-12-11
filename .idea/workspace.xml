@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Fixed confusion matrix, made model name a config,moved place of 100 test.">
-      <change afterPath="$PROJECT_DIR$/plotting/confusionmatrix.py" afterDir="false" />
+    <list default="true" id="c115e074-0091-4426-b69c-8bbf85020b3f" name="Changes" comment="Added class names for confusion matrix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/createmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/createmodel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processing/100test.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotting/100test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +51,7 @@
   "keyToString": {
     "Python.app.executor": "Run",
     "Python.checkimages.executor": "Run",
+    "Python.confusionmatrix.executor": "Run",
     "Python.createmodel.executor": "Run",
     "Python.dataprocessing.executor": "Run",
     "Python.effecientbnetmodel.executor": "Run",
@@ -116,7 +113,7 @@
       <workItem from="1733088881889" duration="4264000" />
       <workItem from="1733337441496" duration="2977000" />
       <workItem from="1733448447681" duration="6717000" />
-      <workItem from="1733863382959" duration="6777000" />
+      <workItem from="1733863382959" duration="7711000" />
     </task>
     <task id="LOCAL-00001" summary="Initial dog dataset and model">
       <option name="closed" value="true" />
@@ -318,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733872630861</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Added class names for confusion matrix">
+      <option name="closed" value="true" />
+      <created>1733872931088</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1733872931088</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,19 +365,21 @@
     <MESSAGE value="Added bold font and increased size for class labels." />
     <MESSAGE value="Moved loss and other mettric plotting to plotting script." />
     <MESSAGE value="Fixed confusion matrix, made model name a config,moved place of 100 test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed confusion matrix, made model name a config,moved place of 100 test." />
+    <MESSAGE value="Added class names for confusion matrix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class names for confusion matrix" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel.coverage" NAME="examplemodel Coverage Results" MODIFIED="1731953357175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$checkimages.coverage" NAME="checkimages Coverage Results" MODIFIED="1732384748597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />
-    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$testing.coverage" NAME="testing Coverage Results" MODIFIED="1733872456067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plotting" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$getdata.coverage" NAME="getdata Coverage Results" MODIFIED="1732466089723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$efficientbnetmodelfinetuned.coverage" NAME="efficientbnetmodelfinetuned Coverage Results" MODIFIED="1732492988246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel2.coverage" NAME="examplemodel2 Coverage Results" MODIFIED="1731956336313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$createmodel.coverage" NAME="createmodel Coverage Results" MODIFIED="1733337840247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$app.coverage" NAME="app Coverage Results" MODIFIED="1733345455651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$effecientbnetmodel.coverage" NAME="effecientbnetmodel Coverage Results" MODIFIED="1732335638557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$model.coverage" NAME="model Coverage Results" MODIFIED="1730608364846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel.coverage" NAME="examplemodel Coverage Results" MODIFIED="1731953357175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$testing.coverage" NAME="testing Coverage Results" MODIFIED="1733872456067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plotting" />
+    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$examplemodel2.coverage" NAME="examplemodel2 Coverage Results" MODIFIED="1731956336313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$confusionmatrix.coverage" NAME="confusionmatrix Coverage Results" MODIFIED="1733873297814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plotting" />
     <SUITE FILE_PATH="coverage/CrossSpeciesEmotionDetection$dataprocessing.coverage" NAME="dataprocessing Coverage Results" MODIFIED="1732466140350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processing" />
   </component>
 </project>
