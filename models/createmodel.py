@@ -10,11 +10,6 @@ from config import imageWidth, imageHeight, numberOfClasses
 from keras.src import layers
 from keras.src.optimizers import Adam
 from keras.src.applications.vgg16 import VGG16
-from sklearn.metrics import confusion_matrix
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 
 # Custom precision metric
 def precision(y_true, y_pred):
