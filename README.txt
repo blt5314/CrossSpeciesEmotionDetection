@@ -1,5 +1,10 @@
 README for CrossSpeciesEmotionDetection
 
+Datasets provided by:
+https://github.com/iamtomyum/DFEdataset (Dog facial emotion data)
+https://www.kaggle.com/datasets/sujaykapadnis/emotion-recognition-dataset (Humann facial emotion data)
+
+
 It is highly recommended that you use the pycharm IDE.
 
 Go to file and then settings in the top left of the IDE.
