@@ -1,6 +1,6 @@
 import os
 
-#StackOverflow code
+#StackOverflow code: https://stackoverflow.com/questions/62544528/tensorflow-decodejpeg-expected-image-jpeg-png-or-gif-got-unknown-format-st
 def is_image(filename, verbose=False):
 
     data = open(filename,'rb').read(10)
