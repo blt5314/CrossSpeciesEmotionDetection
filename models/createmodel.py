@@ -33,7 +33,7 @@ def f1_score(y_true, y_pred):
     return f1
 
 # Name of file to save the model to
-modelSaveName = "dog_vgg16_multiclass_model.keras"
+modelSaveName = "combined_vgg16_multiclass_model.keras"
 
 # Retrieving data
 trainingDataset = getTrainingData()
